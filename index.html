@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Storage-Based Product Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>📦 Product Storage Tracker</h1>
+
+    <!-- Ingredient Storage Section -->
+    <section>
+      <h2>Ingredient Storage</h2>
+      <div class="input-group">
+        <input placeholder="Name" id="store-name">
+        <input type="number" placeholder="Qty (e.g. 1)" id="store-qty">
+        <input type="number" placeholder="Cost (₱)" id="store-cost">
+
+        <select id="store-cost-mode">
+          <option value="bulk">Bulk (e.g. box of cans)</option>
+          <option value="per">Per item (e.g. per kg)</option>
+        </select>
+
+        <input type="number" placeholder="Units per Item (e.g. 1000g)" id="store-portion">
+        <input placeholder="Label (e.g. kg, can, ml)" id="store-label">
+
+        <select id="store-unit">
+          <option value="gram">Gram</option>
+          <option value="ml">Milliliter</option>
+          <option value="piece">Piece</option>
+        </select>
+
+        <button onclick="addStorage()">Add</button>
+      </div>
+
+      <!-- Ingredient Storage Table -->
+      <table id="storage-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Qty</th>
+            <th>Label</th>
+            <th>Used</th>
+            <th>Left</th>
+            <th>Total Cost</th>
+            <th>Cost per Item</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Recipe Definition Section -->
+    <section>
+      <h2>Recipe Definition</h2>
+      <input placeholder="Product Name" id="recipe-name">
+      <div id="recipe-list"></div>
+      <button onclick="addRecipeIngredient()">+ Ingredient</button>
+      <button onclick="saveRecipe()">Save Recipe</button>
+      <table id="recipe-table">
+        <thead><tr><th>Product</th><th>Ingredient</th><th>Qty</th><th>Unit</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Produce Batch Section -->
+    <section>
+      <h2>Produce Batch</h2>
+      <select id="batch-product"></select>
+      <input type="number" id="batch-qty" placeholder="How many?">
+      <button onclick="produceBatch()">Produce</button>
+      <table id="batch-log">
+        <thead><tr><th>Date</th><th>Product</th><th>Qty</th><th>Total Cost</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
